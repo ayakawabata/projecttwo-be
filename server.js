@@ -4,7 +4,7 @@ var bodyParser  = require('body-parser');
 var mongodb     = require('mongodb');
 var app         = express();
 var request     = require('request');
-
+PORT = process.env.PORT || 80;
 /* let's add the ability ajax to our server from anywhere! */
 app.use(cors());
 
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 var MongoClient = mongodb.MongoClient;
 
 /* Connection url where your mongodb server is running. */
-var mongoUrl = 'mongodb://localhost:27017/flash_db';
+var mongoUrl = 'mongodb://heroku_gbkqnwz3:sbe6kj6o9q3q96h3hn4lflq63s@ds035965.mlab.com:35965/heroku_gbkqnwz3';
 
 
 
@@ -253,6 +253,6 @@ app.put('/words/:name', function(request, response) {
 
 
 /* tell our app where to listen */
-app.listen(3000, function(){
+app.listen(PORT, function(){
   console.log('listen to events on a "port".')
 });
